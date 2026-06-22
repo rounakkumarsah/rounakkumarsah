@@ -53,4 +53,3 @@ Mechanical Engineer turned AI Automation Engineer who loves building intelligent
 
 ![Rounak's GitHub stats](https://github-readme-stats.vercel.app/api?username=rounakkumarsah&show_icons=true&theme=tokyonight)
 
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=rounakkumarsah&layout=compact&theme=tokyonight)
