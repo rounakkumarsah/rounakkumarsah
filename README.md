@@ -1,4 +1,6 @@
 # Hi, I'm Rounak Kumar Sah 👋
+![Profile Views](https://komarev.com/ghpvc/?username=rounakkumarsah&color=blue)
+![GitHub followers](https://img.shields.io/github/followers/rounakkumarsah?label=Followers&style=social)
 
 ## 🚀 AI Systems Engineer | AI Agent Developer | RAG Engineer
 
