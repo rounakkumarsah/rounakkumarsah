@@ -7,6 +7,13 @@
 I build AI-powered automation systems using n8n, Python, LLMs, PostgreSQL, and Supabase.
 
 ### 💻 Tech Stack
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![n8n](https://img.shields.io/badge/n8n-EA4B71?style=for-the-badge&logo=n8n&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
+
 - n8n Workflow Automation
 - Python
 - AI Agents & LLM Integration
@@ -42,3 +49,9 @@ I build AI-powered automation systems using n8n, Python, LLMs, PostgreSQL, and S
 
 ### ⚡ Fun Fact
 Mechanical Engineer turned AI Automation Engineer who loves building intelligent systems.
+
+## 📊 GitHub Stats
+
+![Rounak's GitHub stats](https://github-readme-stats.vercel.app/api?username=rounakkumarsah&show_icons=true&theme=tokyonight)
+
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=rounakkumarsah&layout=compact&theme=tokyonight)
