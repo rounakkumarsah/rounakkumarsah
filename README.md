@@ -49,7 +49,5 @@ I build AI-powered automation systems using n8n, Python, LLMs, PostgreSQL, and S
 ### ⚡ Fun Fact
 Mechanical Engineer turned AI Automation Engineer who loves building intelligent systems.
 
-## 📊 GitHub Stats
 
-![Rounak's GitHub stats](https://github-readme-stats.vercel.app/api?username=rounakkumarsah&show_icons=true&theme=tokyonight)
 
