@@ -56,54 +56,6 @@ I enjoy designing scalable enterprise AI architectures that combine Retrieval-Au
 
 ---
 
-# 🚀 Current Projects
-
-### 🤖 AI Review Management Automation System
-
-- Google Business Profile Review Monitoring
-- AI Sentiment Analysis
-- Automated Reply Suggestions
-- Telegram Approval Workflow
-- Human-in-the-loop System
-
-Tech:
-Python • n8n • OpenAI • Telegram
-
----
-
-### 📚 Enterprise RAG Knowledge Assistant
-
-Currently Building
-
-Features
-
-- PDF Knowledge Base
-- Vector Search
-- Semantic Retrieval
-- Streaming AI Responses
-- Multi Collection Support
-- FastAPI Backend
-- Qdrant Vector Database
-
-Tech
-
-Python • FastAPI • LangGraph • Gemini • PostgreSQL • Docker
-
----
-
-### 💬 WhatsApp AI Lead Qualification Agent
-
-Currently Building
-
-Features
-
-- AI Lead Qualification
-- Follow-up Automation
-- CRM Integration
-- Appointment Scheduling
-- WhatsApp Business Automation
-
----
 
 # 🌱 Currently Learning
 
