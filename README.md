@@ -53,31 +53,7 @@ I enjoy designing scalable enterprise AI architectures that combine Retrieval-Au
 - Next.js
 - React
 - Tailwind CSS
-
----
-
-
-# 🌱 Currently Learning
-
-- Multi-Agent Systems
-- Model Context Protocol (MCP)
-- Advanced RAG Architectures
-- AI SaaS Engineering
-- Enterprise AI System Design
-- Kubernetes for AI Deployment
-
----
-
-# 🎯 Current Focus
-
-- Production AI Systems
-- Enterprise AI Architecture
-- Agentic AI
-- Workflow Automation
-- RAG Applications
-- AI APIs
-- AI SaaS
-
+  
 ---
 
 # 📈 GitHub Stats
