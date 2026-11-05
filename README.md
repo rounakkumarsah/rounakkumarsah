@@ -2,56 +2,38 @@
 
 ![Profile Views](https://komarev.com/ghpvc/?username=rounakkumarsah&color=blue)
 
-# 🚀 AI Systems Engineer | AI Agent Developer | RAG Engineer
+# 🚀 End-to-End AI Systems Architect
 
-I build production-ready AI systems, AI Agents, and workflow automation solutions using Python, n8n, LLMs, LangGraph, FastAPI, PostgreSQL, Supabase, and Docker.
-
-I enjoy designing scalable enterprise AI architectures that combine Retrieval-Augmented Generation (RAG), Agentic AI, APIs, and automation.
+Unifying Deep Compute Optimization with Production Web, Mobile & Automation Platforms. I design scalable, high-throughput enterprise AI architectures combining Multi-Agent Orchestration, Retrieval-Augmented Generation (RAG), and GPU-accelerated inference pipelines.
 
 ---
 
 ## 💻 Tech Stack
 
-### Languages
-- Python
-- SQL
-- JavaScript
-- TypeScript
+### AI & ML Infrastructure (Primary)
+- LangGraph & Multi-Agent State Machines
+- Vector DBs: Qdrant, PGVector
+- Knowledge Graphs: Neo4j
+- Google Gemini & OpenAI Ensembles
+- Context-Free Grammar (CFG) & Pydantic Structuring
 
-### AI & LLM
-- OpenAI
-- Google Gemini
-- LangChain
-- LangGraph
-- MCP (Learning)
-- RAG
-- AI Agents
+### Backend & Distributed Systems
+- Python & Rust (Learning)
+- FastAPI (High-Concurrency Endpoints)
+- PostgreSQL & Supabase
+- REST APIs & Webhooks
 
-### Backend
-- FastAPI
-- REST APIs
-- Webhooks
+### DevOps & Compute
+- Docker & Docker Compose
+- GitHub Actions (CI/CD)
+- Bare-Metal & Local LLM Serving (Ollama, vLLM)
 
-### Automation
-- n8n
-- Telegram Bots
-- WhatsApp Automation
-
-### Databases
-- PostgreSQL
-- Supabase
-- Qdrant
-- PGVector
-
-### DevOps
-- Docker
-- Docker Compose
-- Git
-- GitHub Actions
+### Workflow Automation
+- n8n (Self-Hosted Deterministic Pipelines)
+- Telegram Bots & WhatsApp Automation
 
 ### Frontend
-- Next.js
-- React
+- Next.js & React
 - Tailwind CSS
   
 ---
@@ -72,126 +54,65 @@ I enjoy designing scalable enterprise AI architectures that combine Retrieval-Au
 # 🚀 Flagship Projects
 
 ## 🤖 ASEP — Autonomous Software Engineering Platform
-
 A production-grade platform for building, orchestrating, and managing autonomous AI software engineering systems.
 
 ### Core Capabilities
-
-- 🤖 Multi-Agent Orchestration
-- 🔄 LangGraph Runtime
+- 🤖 Multi-Agent Orchestration (LangGraph Runtime)
 - 🧠 AI Runtime Abstraction Layer
-- 👨‍💻 Human-in-the-Loop Governance
-- 📚 Enterprise RAG
 - 🔍 Hybrid Search & Semantic Retrieval
-- 🧠 Qdrant Vector Memory
-- 🕸 Neo4j Knowledge Graph
+- 🧠 Qdrant Vector Memory & Neo4j Knowledge Graph
 - ⚡ Autonomous Workflow Engine
-- 📊 Enterprise Evaluation Framework
 - 🐳 Docker Sandboxed Tool Execution
-- 🔌 FastAPI Backend
-- 💻 Next.js Dashboard
+- 🔌 FastAPI Backend & Next.js Dashboard
 - 🗄 PostgreSQL + Redis Infrastructure
-- 🔐 Authentication & Role-Based Access Control (Planned)
-- 📈 Monitoring & Observability (Planned)
 
-**Tech Stack**
-
-Python • FastAPI • LangGraph • PostgreSQL • Redis • Qdrant • Neo4j • Docker • Next.js • Gemini • OpenAI
+**Tech Stack:** Python • FastAPI • LangGraph • PostgreSQL • Redis • Qdrant • Neo4j • Docker • Next.js • Gemini • OpenAI
 
 ---
 
 ## 📚 Enterprise RAG Platform
-
 Production-ready Retrieval-Augmented Generation platform for enterprise knowledge management.
 
 ### Features
-
-- 🔍 Hybrid Search
-- 🧠 Semantic Retrieval
-- 📄 Multi-Document Chat
-- ⚡ Streaming Responses
-- 🗂 Multi-Collection Support
-- 📥 PDF Knowledge Ingestion
+- 🔍 Hybrid Search & Semantic Retrieval
+- 📄 Multi-Document Chat with Streaming Responses
+- 🗂 Multi-Collection Support & PDF Knowledge Ingestion
 - 🔄 Knowledge Synchronization
-- 📊 Metadata Filtering
-- 📈 Retrieval Evaluation
 - 🔐 Enterprise Access Control
 
-**Tech Stack**
-
-FastAPI • LangGraph • Qdrant • PostgreSQL • Gemini • Docker
+**Tech Stack:** FastAPI • LangGraph • Qdrant • PostgreSQL • Gemini • Docker
 
 ---
 
-## ⚙️ AI Automation Systems
-
-Production AI automation solutions for modern businesses.
+## ⚙️ Business Automation Platforms
+Production deterministic workflows unifying AI with enterprise operations.
 
 ### Solutions
-
 - ⭐ AI Review Management System
-- 💬 WhatsApp AI Automation
-- 🤖 AI Customer Support Automation
-- 📧 Email Automation
-- 🔄 Business Workflow Automation
+- 💬 WhatsApp & Telegram AI Automation
+- 🔄 Business Workflow & CRM Automation
 - 🔌 REST API Integrations
-- 📊 Enterprise AI Workflows
-- 📱 Telegram AI Bots
-- 🏢 CRM Automation
 
-**Tech Stack**
-
-Python • n8n • FastAPI • PostgreSQL • OpenAI • Gemini • Docker
+**Tech Stack:** Python • n8n • FastAPI • PostgreSQL • OpenAI • Gemini • Docker
 
 ---
 
 # 🌱 Currently Learning
-
+- 🏗 Enterprise GPU Compute & Inference Scaling (vLLM, TensorRT)
 - 🧠 Distributed Multi-Agent Systems
-- 🏗 Enterprise AI Architecture
-- ⚙️ AI Software Engineering
-- 📊 LLM Evaluation & Benchmarking
-- 🔬 AI Observability
-- ☁️ Cloud-Native AI Platforms
+- 📊 LLM Evaluation, Benchmarking & Observability
 - 🔄 Model Context Protocol (MCP)
-- 📚 Advanced RAG Architectures
-- 🧠 Knowledge Graph Systems
-- 🚀 AI Platform Engineering
-
----
-
-# 🎯 Current Focus
-
-- Enterprise AI Platforms
-- Agentic AI Systems
-- Autonomous Software Engineering
-- Enterprise RAG
-- AI Infrastructure
-- AI Platform Engineering
-- Production AI Systems
-- Workflow Automation
-- AI SaaS Engineering
+- 🚀 AI Platform Engineering & Formal Verification (Z3 SMT)
 
 ---
 
 # 📫 Connect With Me
-
-💼 LinkedIn
-
-https://www.linkedin.com/in/rounak-kumar-sah
-
-💻 GitHub
-
-https://github.com/rounakkumarsah
+💼 [LinkedIn](https://www.linkedin.com/in/rounak-kumar-sah)
+💻 [GitHub](https://github.com/rounakkumarsah)
 
 ---
 
 ## ⚡ About Me
-
-Mechanical Engineer turned AI Systems Engineer passionate about building production-ready AI applications, enterprise automation, intelligent agents, and scalable software systems.
-
-Currently focused on AI Engineering, Agentic AI, RAG, and Enterprise AI Architecture.
-
----
+End-to-End AI Systems Architect passionate about building production-ready inference pipelines, autonomous agents, and scalable enterprise software systems. 
 
 ⭐ If you like my projects, consider giving them a star!
