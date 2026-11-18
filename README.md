@@ -1,118 +1,54 @@
-# Hi, I'm Rounak Kumar Sah 👋
+# Rounak Kumar Sah — AI & Full-Stack Systems Engineer
 
-![Profile Views](https://komarev.com/ghpvc/?username=rounakkumarsah&color=blue)
+Production-grade AI systems, multi-agent orchestration frameworks, and scalable web applications built with Python, FastAPI, Next.js, LangGraph, Qdrant, PostgreSQL, and Docker.
 
-# 🚀 End-to-End AI Systems Architect
+### Technical Focus & Core Stack
 
-Unifying Deep Compute Optimization with Production Web, Mobile & Automation Platforms. I design scalable, high-throughput enterprise AI architectures combining Multi-Agent Orchestration, Retrieval-Augmented Generation (RAG), and GPU-accelerated inference pipelines.
-
----
-
-## 💻 Tech Stack
-
-### AI & ML Infrastructure (Primary)
-- LangGraph & Multi-Agent State Machines
-- Vector DBs: Qdrant, PGVector
-- Knowledge Graphs: Neo4j
-- Google Gemini & OpenAI Ensembles
-- Context-Free Grammar (CFG) & Pydantic Structuring
-
-### Backend & Distributed Systems
-- Python & Rust (Learning)
-- FastAPI (High-Concurrency Endpoints)
-- PostgreSQL & Supabase
-- REST APIs & Webhooks
-
-### DevOps & Compute
-- Docker & Docker Compose
-- GitHub Actions (CI/CD)
-- Bare-Metal & Local LLM Serving (Ollama, vLLM)
-
-### Workflow Automation
-- n8n (Self-Hosted Deterministic Pipelines)
-- Telegram Bots & WhatsApp Automation
-
-### Frontend
-- Next.js & React
-- Tailwind CSS
-  
----
-
-# 📈 GitHub Stats
-
-(Add GitHub Stats Cards Here)
+- **Backend & Systems**: Python (3.12+), FastAPI, Asyncio, Pydantic v2, PostgreSQL, Redis, Docker, Docker Compose
+- **AI Architecture & Retrieval**: LangGraph, Qdrant (Vector & Hybrid Search), Neo4j, Model Context Protocol (MCP), RAG Evaluation
+- **Frontend & Web**: Next.js (App Router), TypeScript, Tailwind CSS, React Server Components
 
 ---
 
-# 📂 Featured Repositories
+### Featured Production Projects
 
-- ASEP — Autonomous Software Engineering Platform
-- Enterprise RAG Knowledge Assistant
-- AI Review Management Automation System
-- WhatsApp AI Lead Qualification Agent
-
-# 🚀 Flagship Projects
-
-## 🤖 ASEP — Autonomous Software Engineering Platform
-A production-grade platform for building, orchestrating, and managing autonomous AI software engineering systems.
-
-### Core Capabilities
-- 🤖 Multi-Agent Orchestration (LangGraph Runtime)
-- 🧠 AI Runtime Abstraction Layer
-- 🔍 Hybrid Search & Semantic Retrieval
-- 🧠 Qdrant Vector Memory & Neo4j Knowledge Graph
-- ⚡ Autonomous Workflow Engine
-- 🐳 Docker Sandboxed Tool Execution
-- 🔌 FastAPI Backend & Next.js Dashboard
-- 🗄 PostgreSQL + Redis Infrastructure
-
-**Tech Stack:** Python • FastAPI • LangGraph • PostgreSQL • Redis • Qdrant • Neo4j • Docker • Next.js • Gemini • OpenAI
+| Project & Repository | System Architecture | Core Tech Stack | Engineering Verification & Focus |
+| :--- | :--- | :--- | :--- |
+| **[ASEP — Autonomous Software Engineering Platform](https://github.com/rounakkumarsah/ASEP)** | Multi-agent state orchestration engine handling long-running software workflows, state persistence, dynamic tool routing, and sandboxed execution. | Python, FastAPI, LangGraph, PostgreSQL, Redis, Neo4j, Qdrant, Ollama | Stateful agent DAGs, graph + vector memory, containerized tool execution. |
+| **[Production-RAG-Agent](https://github.com/rounakkumarsah/Production-RAG-Agent)** | Dockerized multi-format RAG pipeline featuring semantic chunking, deterministic chunk IDs, duplicate detection, and citation-grounded retrieval. | Python, FastAPI, Next.js, LangGraph, Qdrant, PostgreSQL, Docker | Exponential-backoff rate-limit recovery, resumable indexing, similarity-threshold filtering. |
 
 ---
 
-## 📚 Enterprise RAG Platform
-Production-ready Retrieval-Augmented Generation platform for enterprise knowledge management.
+### Featured System Design & Engineering Decisions
 
-### Features
-- 🔍 Hybrid Search & Semantic Retrieval
-- 📄 Multi-Document Chat with Streaming Responses
-- 🗂 Multi-Collection Support & PDF Knowledge Ingestion
-- 🔄 Knowledge Synchronization
-- 🔐 Enterprise Access Control
+#### 1. Hybrid Vector Retrieval Architecture (Dense + Sparse Fusion)
+When constructing production Retrieval-Augmented Generation (RAG) systems, relying solely on dense vector embeddings often leads to low precision on exact-keyword domain queries (e.g., error codes, legal identifiers, specific API symbols).
 
-**Tech Stack:** FastAPI • LangGraph • Qdrant • PostgreSQL • Gemini • Docker
+To resolve this limitation, hybrid retrieval combines dense semantic vectors (Qdrant) with sparse lexical tokens (BM25) fused via Reciprocal Rank Fusion (RRF):
 
----
+$$RRF\_Score(d \in D) = \sum_{m \in M} \frac{1}{k + r_m(d)}$$
 
-## ⚙️ Business Automation Platforms
-Production deterministic workflows unifying AI with enterprise operations.
+Where $M$ represents the set of retrieval systems (dense and sparse), and $r_m(d)$ is the rank of document $d$ in system $m$. Using $k=60$ dampens outlier rankings and produces a balanced context set before cross-encoder reranking.
 
-### Solutions
-- ⭐ AI Review Management System
-- 💬 WhatsApp & Telegram AI Automation
-- 🔄 Business Workflow & CRM Automation
-- 🔌 REST API Integrations
-
-**Tech Stack:** Python • n8n • FastAPI • PostgreSQL • OpenAI • Gemini • Docker
+#### 2. Governed Model Context Protocol (MCP) Tool Integration
+Exposing internal APIs directly to LLM agents without strict governance creates prompt-injection and data-exfiltration vectors. Production MCP servers built with FastAPI/FastMCP enforce:
+- **Context Schema Minimization**: Stripping redundant OpenAPI metadata and loading tool schemas on demand to prevent context-window bloat.
+- **Stateless Transport & Auth**: Enforcing OAuth 2.1 token validation and fine-grained read/write separation over Streamable HTTP / SSE transports.
+- **Deterministic Tool Contracts**: Validating every tool payload with strict Pydantic v2 models and human-in-the-loop (HITL) approval gates for mutating actions.
 
 ---
 
-# 🌱 Currently Learning
-- 🏗 Enterprise GPU Compute & Inference Scaling (vLLM, TensorRT)
-- 🧠 Distributed Multi-Agent Systems
-- 📊 LLM Evaluation, Benchmarking & Observability
-- 🔄 Model Context Protocol (MCP)
-- 🚀 AI Platform Engineering & Formal Verification (Z3 SMT)
+### Technical Sprints & Roles
+
+- **Full-Time Engineering Roles**: Open to AI Engineer, Backend Python/FastAPI, and Full-Stack AI Engineer roles (Bengaluru, Hyderabad, or Remote).
+- **Fixed-Scope Technical Sprints ($1,200+ / Scope-Based)**:
+  - **Production RAG Pipeline & Audit**: Hybrid retrieval (Qdrant + BM25), chunking optimization, and automated RAG evaluation setup.
+  - **MCP Server & Agent Orchestration**: Wrapping existing FastAPI/REST services into governed, schema-validated MCP tools and stateful LangGraph workflows.
+  - **Prototype-to-Production SaaS Rescue**: Fixing auth, webhook idempotency, Docker deployment, and automated API contract testing (`pytest` / `Schemathesis`).
 
 ---
 
-# 📫 Connect With Me
-💼 [LinkedIn](https://www.linkedin.com/in/rounak-kumar-sah)
-💻 [GitHub](https://github.com/rounakkumarsah)
+### Connect & Inquiries
 
----
-
-## ⚡ About Me
-End-to-End AI Systems Architect passionate about building production-ready inference pipelines, autonomous agents, and scalable enterprise software systems. 
-
-⭐ If you like my projects, consider giving them a star!
+- **LinkedIn**: [linkedin.com/in/rounak-kumar-sah](https://www.linkedin.com/in/rounak-kumar-sah)
+- **Email**: `rounakkrsah429@gmail.com`
