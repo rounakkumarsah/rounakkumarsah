@@ -1,50 +1,46 @@
-# Rounak Kumar Sah — AI & Full-Stack Systems Engineer
+# Rounak Kumar Sah — AI & Full-Stack Engineer
 
-Production-grade AI systems, multi-agent orchestration frameworks, and scalable web applications built with Python, FastAPI, Next.js, LangGraph, Qdrant, PostgreSQL, and Docker.
+Production AI systems, stateful multi-agent platforms, and full-stack web applications built with Python, FastAPI, Next.js 15, TypeScript, LangGraph, Qdrant, PostgreSQL, Neo4j, and Docker.
 
 ### Technical Focus & Core Stack
 
-- **Backend & Systems**: Python (3.12+), FastAPI, Asyncio, Pydantic v2, PostgreSQL, Redis, Docker, Docker Compose
-- **AI Architecture & Retrieval**: LangGraph, Qdrant (Vector & Hybrid Search), Neo4j, Model Context Protocol (MCP), RAG Evaluation
-- **Frontend & Web**: Next.js (App Router), TypeScript, Tailwind CSS, React Server Components
+- **Agentic AI & RAG**: LangGraph (`StateGraph`, `interrupt()`), Model Context Protocol (MCP), RAG Pipelines, Tool Calling, OpenAI, Google Gemini, Anthropic Claude, Pydantic v2, PyMuPDF, PaddleOCR
+- **Backend & APIs**: Python 3.12 (`asyncio`), FastAPI, REST, WebSockets, Server-Sent Events (SSE), JWT Auth & RBAC, Ephemeral Docker Sandboxing
+- **Databases & Search**: PostgreSQL (`SQLAlchemy 2.0`, `asyncpg`, `Alembic`), Qdrant (Vector Search), Redis (Pub/Sub & Caching), Neo4j (AST Knowledge Graphs), Supabase
+- **Frontend, Testing & DevSecOps**: Next.js 15, React 19, TypeScript, Tailwind CSS, Zustand, Docker (Multi-stage), GitHub Actions CI/CD, `pytest`, `Vitest`, CodeQL, Semgrep, Trivy, Bandit
 
 ---
 
 ### Featured Production Projects
 
-| Project & Repository | System Architecture | Core Tech Stack | Engineering Verification & Focus |
+| Project & Repository | System Architecture | Core Tech Stack | Code-Verified Engineering Proof |
 | :--- | :--- | :--- | :--- |
-| **[ASEP — Autonomous Software Engineering Platform](https://github.com/rounakkumarsah/ASEP)** | Multi-agent state orchestration engine handling long-running software workflows, state persistence, dynamic tool routing, and sandboxed execution. | Python, FastAPI, LangGraph, PostgreSQL, Redis, Neo4j, Qdrant, Ollama | Stateful agent DAGs, graph + vector memory, containerized tool execution. |
-| **[Production-RAG-Agent](https://github.com/rounakkumarsah/Production-RAG-Agent)** | Dockerized multi-format RAG pipeline featuring semantic chunking, deterministic chunk IDs, duplicate detection, and citation-grounded retrieval. | Python, FastAPI, Next.js, LangGraph, Qdrant, PostgreSQL, Docker | Exponential-backoff rate-limit recovery, resumable indexing, similarity-threshold filtering. |
+| **[ASEP — Autonomous Software Engineering Platform](https://github.com/rounakkumarsah/ASEP)** | 32-node LangGraph multi-agent runtime across 33 FastAPI routers with bounded `critic ↔ debugger` self-healing loops, HITL pause/resume, and an in-browser Next.js 15 IDE. | Python, FastAPI, Next.js 15, React 19, LangGraph, PostgreSQL, Redis, Qdrant, Neo4j, Docker | **706 passing tests** (555 `pytest`, 151 `Vitest`), **7 CI security gates** (CodeQL, Semgrep, Trivy, Bandit, Cosign), ephemeral Docker sandbox (`network_mode="none"`, `cap_drop=["ALL"]`, 50MB RAM / 50 PID limits). |
+| **[Production-RAG-Agent](https://github.com/rounakkumarsah/Production-RAG-Agent)** | Crash-resilient multi-format RAG platform supporting 8 file formats (16 extensions) with PyMuPDF + dynamic PaddleOCR/Tesseract fallback and real-time SSE token/citation streaming. | Python, FastAPI, Next.js 15, LangGraph, Qdrant, PostgreSQL, Gemini, Docker | SHA-256 deduplication + deterministic **UUIDv5** Qdrant WAL checkpointing, `asyncio.Semaphore` + dynamic batch halving for HTTP 429 recovery, dual cosine cutoffs (`0.63` floor / `0.05` gap). |
 
 ---
 
-### Featured System Design & Engineering Decisions
+### Featured Code-Verified Engineering Decisions
 
-#### 1. Hybrid Vector Retrieval Architecture (Dense + Sparse Fusion)
-When constructing production Retrieval-Augmented Generation (RAG) systems, relying solely on dense vector embeddings often leads to low precision on exact-keyword domain queries (e.g., error codes, legal identifiers, specific API symbols).
+#### 1. Non-Blocking HITL Governance & Ephemeral Execution Sandboxing (`ASEP`)
+Executing LLM-generated code or destructive commands inside an async API backend creates two severe failure modes: Remote Code Execution (RCE) and blocked worker threads during human approval waits.
+- **Defense-in-Depth Sandboxing**: Isolated code runs inside ephemeral Docker containers configured with `network_mode="none"`, `read_only=True` rootfs (`noexec,nosuid,nodev` tmpfs), `cap_drop=["ALL"]`, `50MB` RAM, `50` PIDs, and a 5-second hard watchdog.
+- **Non-Blocking Interrupts**: High-risk MCP tool calls trigger LangGraph `interrupt()` and snapshot state via `AsyncPostgresSaver` into PostgreSQL, freeing the FastAPI event loop until an approval decision resumes the graph via `Command(resume=...)`.
 
-To resolve this limitation, hybrid retrieval combines dense semantic vectors (Qdrant) with sparse lexical tokens (BM25) fused via Reciprocal Rank Fusion (RRF):
-
-$$RRF\_Score(d \in D) = \sum_{m \in M} \frac{1}{k + r_m(d)}$$
-
-Where $M$ represents the set of retrieval systems (dense and sparse), and $r_m(d)$ is the rank of document $d$ in system $m$. Using $k=60$ dampens outlier rankings and produces a balanced context set before cross-encoder reranking.
-
-#### 2. Governed Model Context Protocol (MCP) Tool Integration
-Exposing internal APIs directly to LLM agents without strict governance creates prompt-injection and data-exfiltration vectors. Production MCP servers built with FastAPI/FastMCP enforce:
-- **Context Schema Minimization**: Stripping redundant OpenAPI metadata and loading tool schemas on demand to prevent context-window bloat.
-- **Stateless Transport & Auth**: Enforcing OAuth 2.1 token validation and fine-grained read/write separation over Streamable HTTP / SSE transports.
-- **Deterministic Tool Contracts**: Validating every tool payload with strict Pydantic v2 models and human-in-the-loop (HITL) approval gates for mutating actions.
+#### 2. Crash-Resilient Ingestion & Rate-Limit Recovery (`Production-RAG-Agent`)
+Mid-upload crashes and provider HTTP `429` quotas break naive RAG pipelines and waste paid embedding calls.
+- **Idempotent Vector Checkpointing**: Every chunk maps to a deterministic `UUIDv5` derived from `filename::page::section::heading::index::text`. Re-uploads query Qdrant's WAL via `get_existing_point_ids()` and skip already-indexed chunks.
+- **Adaptive Backoff & Batch Halving**: Outbound Gemini embedding requests (3072-dim) are serialized via `asyncio.Semaphore`, parse exact gRPC `retry_delay` / HTTP `Retry-After` headers, and dynamically halve batch sizes (`5 → 2 → 1`) on rate limits instead of aborting ingestion.
 
 ---
 
-### Technical Sprints & Roles
+### Full-Time Roles & Technical Sprints
 
-- **Full-Time Engineering Roles**: Open to AI Engineer, Backend Python/FastAPI, and Full-Stack AI Engineer roles (Bengaluru, Hyderabad, or Remote).
+- **Full-Time Engineering Roles**: Open to AI Engineer, Full-Stack AI Engineer, and Backend Python/FastAPI roles (**Bengaluru, Hyderabad, Pune, Chennai, Mumbai, or Global Remote**).
 - **Fixed-Scope Technical Sprints ($1,200+ / Scope-Based)**:
-  - **Production RAG Pipeline & Audit**: Hybrid retrieval (Qdrant + BM25), chunking optimization, and automated RAG evaluation setup.
-  - **MCP Server & Agent Orchestration**: Wrapping existing FastAPI/REST services into governed, schema-validated MCP tools and stateful LangGraph workflows.
-  - **Prototype-to-Production SaaS Rescue**: Fixing auth, webhook idempotency, Docker deployment, and automated API contract testing (`pytest` / `Schemathesis`).
+  - **Production RAG Pipeline & Audit**: Crash-resilient multi-format ingestion, OCR fallback, Qdrant retrieval tuning, and streaming citation UIs.
+  - **Governed MCP & Multi-Agent Orchestration**: Wrapping FastAPI/REST APIs into RBAC-enforced MCP tools, sandboxed execution, and stateful LangGraph HITL workflows.
+  - **Prototype-to-Production Backend Rescue**: Fixing async bottlenecks, Docker multi-stage hardening, automated `pytest` suites, and CI security gates.
 
 ---
 
